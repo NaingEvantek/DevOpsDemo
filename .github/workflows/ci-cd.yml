@@ -25,6 +25,12 @@ jobs:
     - name: Publish project
       run: dotnet publish -c Release -o out
 
+    - name: Check secrets
+      run: echo "Username is ${{ secrets.DOCKERHUB_USERNAME }}"
+
+    - name: Check secrets
+      run: echo "Token is ${{ secrets.DOCKERHUB_TOKEN }}"
+
     - name: Build Docker image
       run: docker build -t devops-demo-api .
 
